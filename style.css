@@ -26,14 +26,14 @@ html {
 
 .pagina__inteira {
     display: grid;
-    grid-template-columns: 66% 33%;
+    grid-template-columns: 50% 50%;
 }
 
 .bloco__container {
     background-color: rgba(25,22,21,0.33);
     border-radius: 16px;
     box-shadow: 3px 3px 2px rgba(25, 22, 21, 0.12);
-    width: 90%;
+    width: 100%;
     text-align: center;
 }
 
@@ -44,7 +44,7 @@ html {
     min-height: 100vh;
     justify-content: space-around;
     gap: 1rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 1.5rem 1.5rem;
 }
 
 .titulo__principal h1{
@@ -77,7 +77,7 @@ html {
     height: 2rem;
     outline: none;
     padding: 0.5rem;
-    width: 80%;
+    width: 85%;
     text-align: center;
     caret-color: var(--cor-primaria);
     margin-bottom: 0.75rem;
@@ -153,7 +153,7 @@ html {
     margin: 0.5rem;
     margin-bottom: 1.5rem;
     padding: 0.5rem;
-    width: 80%;
+    width: 85%;
     min-height: 3rem;
 }
 
