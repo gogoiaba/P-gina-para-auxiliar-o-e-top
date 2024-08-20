@@ -4,7 +4,7 @@
     --cor-primaria: #F2F2F2;
     --cor-secundaria: #d5d4d4;
     --cor-texto: #403835;
-    --cor-destaque: ;
+    --cor-apagada: #4038356d;
     --fonte-titulo: "Passion One", sans-serif;
     --fonte-texto: "Roboto", sans-serif;
 
@@ -52,6 +52,7 @@ html {
     font-weight: 400;
     font-size: 5rem;
     margin-top: 1rem;
+    text-shadow: 3px 3px 2px rgba(25, 22, 21, 0.12);;
     color: var(--cor-primaria);
 }
 
@@ -143,18 +144,31 @@ html {
     font-size: 1.5rem;
 }
 
-.lista__paragrafo {
-    align-items: center;
+.box__paragrafo {
     border: 3px solid var(--cor-primaria);
     border-radius: 16px;
     color: var(--cor-texto);
-    display: flex;
     font-size: 1rem;
     font-weight: 500;
-    justify-content: center;
     margin: 0.5rem;
     margin-bottom: 1.5rem;
     padding: 0.5rem;
     width: 80%;
-    min-height: 2rem;
+    min-height: 3rem;
+}
+
+.lista__paragrafo {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    font-weight: 500;
+    justify-content: center;
+    gap: 0.5rem; /* Adiciona espaço entre as palavras */
+}
+
+.palavra__escrita {
+    padding: 0.4rem 0.8rem;
+    border: 2px solid var(--cor-apagada);
+    border-radius: 16px;
+    display: inline-block; /* Garante que as palavras sejam exibidas em bloco */
 }
