@@ -172,3 +172,13 @@ html {
     border-radius: 16px;
     display: inline-block; /* Garante que as palavras sejam exibidas em bloco */
 }
+
+.pagina__imagem {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.foto__menino {
+    width: 100%;
+}
