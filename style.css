@@ -222,6 +222,7 @@ html {
     .pagina__texto {
         justify-content: space-evenly;
         gap: 0;
+        min-height: 80vh;
     }
 
     .titulo__principal h1{
