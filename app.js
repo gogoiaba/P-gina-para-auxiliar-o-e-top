@@ -58,8 +58,19 @@ function renderPalavras() {
 
 // Função para excluir uma palavra da lista
 function excluirPalavra(index) {
-    palavras.splice(index, 1);
-    renderPalavras();
+    palavras.splice(index, 1); // Remove a palavra do array pelo índice
+    const palavraElement = document.querySelectorAll('.palavra__escrita')[index];
+    
+    // Adiciona uma animação de desaparecimento (opcional)
+    palavraElement.classList.remove('show'); 
+    palavraElement.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+    palavraElement.style.opacity = "0";
+    palavraElement.style.transform = "scale(0.8)";
+    
+    // Remove o elemento do DOM após a animação
+    setTimeout(() => {
+        palavraElement.remove();
+    }, 300);
 }
 
 // Função para limpar toda a lista
