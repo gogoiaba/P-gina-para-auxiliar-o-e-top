@@ -142,7 +142,6 @@ html {
 .lista__titulo {
     color: var(--cor-primaria);
     margin-top: 1rem;
-    font-size: 1.5rem;
 }
 
 .box__paragrafo {
