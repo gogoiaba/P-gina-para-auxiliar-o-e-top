@@ -43,38 +43,39 @@ function adicionar() {
 }
 
 // Função para renderizar as palavras na lista
+// Função para renderizar as palavras na lista
 function renderPalavras() {
     const listaPalavras = document.getElementById("lista-palavras");
     listaPalavras.innerHTML = '';
 
-    palavras.forEach((palavra, index) => {
+    palavras.forEach((palavra) => {
         const palavraElement = document.createElement('span');
         palavraElement.textContent = palavra;
         palavraElement.classList.add('palavra__escrita');
-        palavraElement.onclick = () => excluirPalavra(index); // Função para excluir a palavra ao clicar
+        palavraElement.onclick = () => excluirPalavra(palavra); // Passa a palavra para a função
         listaPalavras.appendChild(palavraElement);
     });
 }
 
 // Função para excluir uma palavra da lista
-function excluirPalavra(index) {
-    palavras.splice(index, 1); // Remove a palavra do array pelo índice
-    const palavraElement = document.querySelectorAll('.palavra__escrita')[index];
-    
-    // Adiciona uma animação de desaparecimento (opcional)
-    palavraElement.classList.remove('show'); 
-    palavraElement.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-    palavraElement.style.opacity = "0";
-    palavraElement.style.transform = "scale(0.8)";
-    
-    // Remove o elemento do DOM após a animação
-    setTimeout(() => {
-        palavraElement.remove();
-    }, 300);
-}
+function excluirPalavra(palavraParaExcluir) {
+    const index = palavras.indexOf(palavraParaExcluir);
+    if (index > -1) {
+        // Remove a palavra do array
+        palavras.splice(index, 1);
 
-// Função para limpar toda a lista
-function limpar() {
-    palavras.length = 0;
-    renderPalavras();
+        // Remove a palavra do DOM
+        const palavraElements = Array.from(document.querySelectorAll('.palavra__escrita'));
+        const palavraElement = palavraElements.find(el => el.textContent === palavraParaExcluir);
+        if (palavraElement) {
+            palavraElement.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+            palavraElement.style.opacity = "0";
+            palavraElement.style.transform = "scale(0.8)";
+
+            // Remove o elemento do DOM após a animação
+            setTimeout(() => {
+                palavraElement.remove();
+            }, 300);
+        }
+    }
 }
