@@ -18,15 +18,18 @@
                     <h2>Qual é a resposta?</h2>
                 </div>
                 <div class="input__campo">
+                    <label for="palavra-input" class="sr-only">Digite a palavra:</label>
                     <input type="text" class="input__input" id="palavra-input" placeholder="Digite a última palavra dita">
                     <div class="botoes__input">
                         <button onclick="adicionar()" type="button" class="button primary">Adicionar</button>
                         <button onclick="limpar()" type="button" class="button secondary">Limpar lista</button>
-                    </div>
+                    </div>                
                 </div>
             </div>
             <div class="container__lista bloco__container">
-                <div class="lista__titulo">Palavras já utilizadas:</div>
+                <div class="lista__titulo">
+                    <h2>Palavras já utilizadas:<h2>
+                </div>
                 <div class="box__paragrafo">
                     <div id="lista-palavras" class="lista__paragrafo"></div>
                 </div>                
@@ -36,9 +39,6 @@
             <img src="img/meninocaderno.png" alt="menino jovem segurando um caderno e um lápis" class="foto__menino">
         </div>
     </div>
-    
-
-
     <script src="app.js"></script>
 </body>
 </html>

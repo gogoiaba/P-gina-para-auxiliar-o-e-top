@@ -1,4 +1,4 @@
-// Acertando o input
+// Função para ajustar o placeholder
 const meuInput = document.querySelector('.input__input');
 meuInput.addEventListener('focus', function() {
     this.placeholder = '';
@@ -7,35 +7,63 @@ meuInput.addEventListener('blur', function() {
     this.placeholder = 'Digite a última palavra dita';
 });
 
-// começando a funcionalidade da lista
-let palavras = [];
+// Array para armazenar as palavras
+const palavras = [];
 
+// Escuta a tecla Enter no campo de entrada
+document.getElementById("palavra-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        adicionar(); // Chama a função de adicionar ao pressionar Enter
+    }
+});
+
+// Função para adicionar uma palavra à lista
 function adicionar() {
-    let palavra = document.getElementById("palavra-input");
+    const inputElement = document.getElementById("palavra-input");
+    const palavra = inputElement.value.trim();
 
-    if (palavra.value == "") {
+    if (!palavra) {
         alert("Nenhuma palavra digitada!");
         return;
     }
 
-    if (palavras.includes(palavra.value)) {
+    if (palavras.includes(palavra.toLowerCase())) {
         alert("Esta palavra já foi dita");
         return;
     }
 
-    palavras.push(palavra.value);
+    palavras.push(palavra.toLowerCase());
+    renderPalavras();
 
-    let novaPalavra = document.createElement("span");
-    novaPalavra.classList.add("palavra__escrita");
-    novaPalavra.textContent = palavra.value;
+    setTimeout(() => {
+        document.querySelectorAll('.palavra__escrita').forEach(el => el.classList.add('show'));
+    }, 10);
 
-    let lista = document.getElementById("lista-palavras");
-    lista.appendChild(novaPalavra);
-
-    palavra.value = "";
+    inputElement.value = "";
 }
 
+// Função para renderizar as palavras na lista
+function renderPalavras() {
+    const listaPalavras = document.getElementById("lista-palavras");
+    listaPalavras.innerHTML = '';
+
+    palavras.forEach((palavra, index) => {
+        const palavraElement = document.createElement('span');
+        palavraElement.textContent = palavra;
+        palavraElement.classList.add('palavra__escrita');
+        palavraElement.onclick = () => excluirPalavra(index); // Função para excluir a palavra ao clicar
+        listaPalavras.appendChild(palavraElement);
+    });
+}
+
+// Função para excluir uma palavra da lista
+function excluirPalavra(index) {
+    palavras.splice(index, 1);
+    renderPalavras();
+}
+
+// Função para limpar toda a lista
 function limpar() {
-    palavras = [];
-    document.getElementById("lista-palavras").innerHTML = "";
+    palavras.length = 0;
+    renderPalavras();
 }
