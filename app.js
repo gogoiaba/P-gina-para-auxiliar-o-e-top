@@ -79,3 +79,13 @@ function excluirPalavra(palavraParaExcluir) {
         }
     }
 }
+
+// Função para limpar toda a lista
+function limpar() {
+    // Limpa o array de palavras
+    palavras.length = 0;
+
+    // Limpa a lista do DOM
+    const listaPalavras = document.getElementById("lista-palavras");
+    listaPalavras.innerHTML = '';
+}
