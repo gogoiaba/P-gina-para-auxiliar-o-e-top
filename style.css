@@ -223,7 +223,7 @@ html {
         justify-content: space-evenly;
         gap: 0.5rem;
         min-height: 80vh;
-        margin: 0.5rem 0;
+        margin: 0.5rem 0.5rem;
     }
 
     .titulo__principal h1{
